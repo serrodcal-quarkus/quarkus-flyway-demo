@@ -70,7 +70,6 @@ Create your first JPA entity
 
 [Related Hibernate with Panache section...](https://quarkus.io/guides/hibernate-orm-panache)
 
-
 ### REST
 
 Easily start your REST Web Services
