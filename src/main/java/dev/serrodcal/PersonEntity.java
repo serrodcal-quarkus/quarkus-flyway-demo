@@ -20,7 +20,7 @@ public class PersonEntity extends PanacheEntityBase {
     @Column(nullable = false)
     public Integer age;
 
-    @Column()
+    @Column(nullable = false)
     public String email;
 
     public static PersonEntity of(String name, Integer age, String email) {
