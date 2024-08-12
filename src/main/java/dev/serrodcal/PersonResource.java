@@ -25,11 +25,14 @@ public class PersonResource {
     @POST
     @ResponseStatus(201)
     @Transactional
-    public void createPerson(@Valid NewPersonRequest newPersonRequest) {
+    public PersonResponse createPerson(@Valid NewPersonRequest newPersonRequest) {
         Log.info("PersonResource.createPerson()");
         Log.debug(newPersonRequest.toString());
 
-        this.personRepository.persistAndFlush(newPersonRequest.toPersonEntity());
+        PersonEntity person = newPersonRequest.toPersonEntity();
+        person.persistAndFlush();
+
+        return person.toResponse();
     }
 
     @GET
@@ -61,6 +64,7 @@ public class PersonResource {
 
         person.name = updatePersonRequest.name();
         person.age = updatePersonRequest.age();
+        person.email = updatePersonRequest.email();
         person.persistAndFlush();
 
         return person.toResponse();
