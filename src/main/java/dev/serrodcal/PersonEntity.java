@@ -20,16 +20,22 @@ public class PersonEntity extends PanacheEntityBase {
     @Column(nullable = false)
     public Integer age;
 
+//    @Column
+//    public String email;
+
+    //public static PersonEntity of(String name, Integer age, String email) {
     public static PersonEntity of(String name, Integer age) {
         PersonEntity personEntity = new PersonEntity();
         personEntity.name = name;
         personEntity.age = age;
+        //personEntity.email = email;
 
         return personEntity;
     }
 
     public PersonResponse toResponse() {
         return new PersonResponse(this.id, this.name, this.age);
+        //return new PersonResponse(this.id, this.name, this.age, this.email);
     }
 
 }
