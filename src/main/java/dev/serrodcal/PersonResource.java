@@ -61,7 +61,7 @@ public class PersonResource {
 
         person.name = updatePersonRequest.name();
         person.age = updatePersonRequest.age();
-        //person.email = updatePersonRequest.email();
+        person.email = updatePersonRequest.email();
         person.persistAndFlush();
 
         return person.toResponse();
